@@ -15,7 +15,8 @@
         fetch('/api/user/getUserDetails')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+                const formattedData = JSON.stringify(data, null, 2).replace(/\n/g, '\n<br>');
+                document.getElementById('result').innerHTML = formattedData;
             })
             .catch(error => console.error('Error fetching data:', error));
     </script>
